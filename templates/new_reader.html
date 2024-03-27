@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="/static/css/style.css" />
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+</head>
+<body>
+    <div class=menu>
+        <ul>
+            <li class = active><a href={{ url_for("new_reader")}}>Вход</a></li>
+        </ul>
+    </div>
+    <div class="avtor">
+    <form action="/" method="get">
+        <p>ФИО читателя: <input type = text name=new_reader></p>
+        <p>Пароль: <input type = text name=psw_reader></p>
+        <p><input type="submit" value="Войти"></p>
+    </form>
+    <form action="/" method="get">
+       <!-- <p><input type="submit" value="Отменить"></p>-->
+    </form>
+    </div>
+</body>
+</html>

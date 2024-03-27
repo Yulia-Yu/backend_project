@@ -1,0 +1,151 @@
+DROP TABLE IF EXISTS Author;
+CREATE TABLE Author (
+id INTEGER PRIMARY KEY,
+fullname TEXT NOT NULL
+);
+INSERT INTO "Author" VALUES(1,'Эрих Мария Ремарк');
+INSERT INTO "Author" VALUES(2,'Николай Гоголь');
+INSERT INTO "Author" VALUES(3,'Лев Толстой');
+INSERT INTO "Author" VALUES(4,'Нил Гейман');
+INSERT INTO "Author" VALUES(5,'Джейн Остин');
+INSERT INTO "Author" VALUES(6,'Дженифер Арментроут');
+INSERT INTO "Author" VALUES(7,'Сара Маас');
+INSERT INTO "Author" VALUES(8,'Агата Кристи');
+INSERT INTO "Author" VALUES(9,'Эдуард Успенский');
+INSERT INTO "Author" VALUES(10,'Корней Иванович Чуковский');
+INSERT INTO "Author" VALUES(11,'Стефани Майер');
+INSERT INTO "Author" VALUES(12,'Джоан Роулинг');
+
+DROP TABLE IF EXISTS Book;
+CREATE TABLE Book (
+id INTEGER PRIMARY KEY,
+name TEXT NOT NULL,
+id_genre INTEGER NOT NULL,
+id_author INTEGER NOT NULL,
+id_Publishing_house INTEGER NOT NULL,
+Date DATA NOT NULL,
+Price INTEGER,
+number_of_copies INTEGER NOT NULL
+);
+INSERT INTO "Book" VALUES(1,'Убийство в Восточном Экспрессе',1,8,1,'2015-01-01',500,10);
+INSERT INTO "Book" VALUES(2,'Оникс',8,6,1,'2016-01-01',400,15);
+INSERT INTO "Book" VALUES(3,'Благие знамения',8,4,2,'2017-05-05',800,20);
+INSERT INTO "Book" VALUES(4,'Отражение',8,6,2,'2019-08-08',700,25);
+INSERT INTO "Book" VALUES(5,'Гарри Поттер и Филосовский камень',11,12,3,'2010-11-01',850,30);
+INSERT INTO "Book" VALUES(6,'Стеклянный трон',11,7,4,'2020-01-01',350,35);
+INSERT INTO "Book" VALUES(7,'Кролевство крыльев и руин',11,7,4,'2015-01-06',745,40);
+INSERT INTO "Book" VALUES(8,'Из Крови и пепела',11,6,2,'2017-01-25',300,15);
+INSERT INTO "Book" VALUES(9,'Три товарища',5,1,5,'2016-05-05',900,10);
+INSERT INTO "Book" VALUES(10,'Гордость и предубеждение',5,5,5,'2015-05-01',800,5);
+INSERT INTO "Book" VALUES(11,'На западном фронте без перемен',5,1,5,'2007-07-06',200,20);
+INSERT INTO "Book" VALUES(12,'Гарри Поттер и Тайная комната',11,12,3,'2007-03-03',500,10);
+INSERT INTO "Book" VALUES(13,'Триумфальная арка',5,1,5,'2005-03-06',450,10);
+INSERT INTO "Book" VALUES(14,'Мертвые души',5,2,5,'1990-08-02',100,20);
+INSERT INTO "Book" VALUES(15,'Анна Каренина',5,3,2,'1990-07-05',200,15);
+INSERT INTO "Book" VALUES(16,'Смерть на Ниле',1,8,7,'2015-07-07',300,25);
+INSERT INTO "Book" VALUES(17,'Чебурашка',3,9,7,'2012-02-02',500,30);
+INSERT INTO "Book" VALUES(18,'Ай Болит',3,10,7,'2010-02-02',450,10);
+INSERT INTO "Book" VALUES(19,'Сумерки',11,11,6,'2010-04-03',300,5);
+INSERT INTO "Book" VALUES(20,'Сумерки.Новолуние',11,11,6,'2018-06-06',600,12);
+
+DROP TABLE IF EXISTS Delivery;
+CREATE TABLE Delivery (
+id INTEGER PRIMARY KEY,
+id_admin INTEGER NOT NULL,
+id_Publishing_house INTEGER NOT NULL,
+data DATA NOT NULL
+);
+INSERT INTO "Delivery" VALUES(1,1,1,'2015-10-22');
+INSERT INTO "Delivery" VALUES(2,2,2,'2017-12-12');
+INSERT INTO "Delivery" VALUES(3,1,4,'2018-02-01');
+INSERT INTO "Delivery" VALUES(4,2,5,'2019-06-06');
+INSERT INTO "Delivery" VALUES(5,1,2,'2022-07-07');
+INSERT INTO "Delivery" VALUES(6,2,2,'2023-11-01');
+INSERT INTO "Delivery" VALUES(7,1,1,'2021-12-16');
+
+DROP TABLE IF EXISTS Genre;
+CREATE TABLE Genre (
+id INTEGER PRIMARY KEY,
+name_genre TEXT NOT NULL
+);
+INSERT INTO "Genre" VALUES(1,'детектив');
+INSERT INTO "Genre" VALUES(2,'боевик');
+INSERT INTO "Genre" VALUES(3,'детские');
+INSERT INTO "Genre" VALUES(4,'история');
+INSERT INTO "Genre" VALUES(5,'классика');
+INSERT INTO "Genre" VALUES(6,'психология');
+INSERT INTO "Genre" VALUES(7,'поэзия');
+INSERT INTO "Genre" VALUES(8,'фантастика');
+INSERT INTO "Genre" VALUES(9,'приключения');
+INSERT INTO "Genre" VALUES(10,'ужасы');
+INSERT INTO "Genre" VALUES(11,'фэнтези');
+INSERT INTO "Genre" VALUES(12,'юмор');
+
+DROP TABLE IF EXISTS Publishing_house;
+CREATE TABLE Publishing_house (
+id INTEGER PRIMARY KEY,
+name_Publishing_house TEXT NOT NULL,
+city TEXT NOT NULL
+);
+INSERT INTO "Publishing_house" VALUES(1,'АСТ','Москва');
+INSERT INTO "Publishing_house" VALUES(2,'Эксмо','Санкт-Петербург');
+INSERT INTO "Publishing_house" VALUES(3,'Росмен','Екатеринбург');
+INSERT INTO "Publishing_house" VALUES(4,'Азбука','Новосибирск');
+INSERT INTO "Publishing_house" VALUES(5,'Магистраль','Москва');
+INSERT INTO "Publishing_house" VALUES(6,'Freedom','Москва');
+INSERT INTO "Publishing_house" VALUES(7,'Clever','Екатеринбург');
+
+DROP TABLE IF EXISTS User_role;
+CREATE TABLE User_role (
+id INTEGER PRIMARY KEY,
+value TEXT NOT NULL
+);
+INSERT INTO "User_role" VALUES(1,'администратор');
+INSERT INTO "User_role" VALUES(2,'библиотекарь');
+INSERT INTO "User_role" VALUES(3,'читатель');
+
+DROP TABLE IF EXISTS Users;
+CREATE TABLE Users (
+id INTEGER PRIMARY KEY,
+lastname TEXT NOT NULL,
+firstname TEXT NOT NULL,
+fathername TEXT,
+Date_of_Birth DATA NOT NULL,
+adress TEXT NOT NULL,
+phone_number INTEGER NOT NULL,
+rool INTEGER NOT NULL
+);
+INSERT INTO "Users" VALUES(1,'Козырина','Ольга','Константиновна','1994-11-01','город Челябинск',89000809006,1);
+INSERT INTO "Users" VALUES(2,'Морева','Светлана','Андреевна','1994-07-19','город Челябинск',89990006688,1);
+INSERT INTO "Users" VALUES(3,'Черепанова','Ирина','Александровна','2001-05-25','город Калининград',89045557788,2);
+INSERT INTO "Users" VALUES(4,'Евсеенко','Наталья','Васильевна','1975-08-12','город Екатеринбург',89065053396,2);
+INSERT INTO "Users" VALUES(5,'Дектеренко','Никита','Александрович','1980-01-24','город Екатеринбург',89961023231,2);
+INSERT INTO "Users" VALUES(6,'Лучевников','Егор','Борисович','2010-09-27','город Владивосток',84561234758,3);
+INSERT INTO "Users" VALUES(7,'Загриценко','Тимофей','Сергеевич','2009-09-27','город Новосибирск',89552365544,3);
+INSERT INTO "Users" VALUES(8,'Бодаева','Вероника','Евгеневна','2008-09-27','город Хабаровск',89995558877,3);
+INSERT INTO "Users" VALUES(9,'Аушкина','Елена','Олеговна','2012-06-06','город Красноярск',89223215458,3);
+INSERT INTO "Users" VALUES(10,'Семенова','Татьяна','Сергеевга','2007-05-10','город Артем',89428552525,3);
+
+DROP TABLE IF EXISTS bool_issuance;
+CREATE TABLE bool_issuance (
+id INTEGER PRIMARY KEY,
+id_reader INTEGER NOT NULL,
+id_bibl INTEGER NOT NULL,
+id_book INTEGER NOT NULL,
+Date DATA NOT NULL,
+Date_V DATA
+);
+INSERT INTO "bool_issuance" VALUES(1,6,1,1,'2023-10-22','2023-11-22');
+INSERT INTO "bool_issuance" VALUES(2,7,2,3,'2023-12-12','2024-01-10');
+INSERT INTO "bool_issuance" VALUES(3,6,3,20,'2023-02-01','2023-02-14');
+INSERT INTO "bool_issuance" VALUES(4,8,1,5,'2023-06-06','2023-07-15');
+INSERT INTO "bool_issuance" VALUES(5,9,2,7,'2023-07-07','2023-07-15');
+INSERT INTO "bool_issuance" VALUES(6,9,3,15,'2023-11-01','2023-11-30');
+INSERT INTO "bool_issuance" VALUES(7,10,1,17,'2023-12-16','2024-01-16');
+INSERT INTO "bool_issuance" VALUES(8,9,2,19,'2023-07-07','2023-07-10');
+INSERT INTO "bool_issuance" VALUES(9,7,3,9,'2023-11-01','2023-12-13');
+INSERT INTO "bool_issuance" VALUES(10,10,1,9,'2023-12-16','2024-02-16');
+
+
+
+
